@@ -15,7 +15,7 @@ class InPlaylists extends React.Component {
 
         <ul style={{ listStyle: 'none', margin: 0, padding: 0, paddingTop: 5 }}>
           {this.props.plists.map(track => {
-            let background = track.albumArt;
+            let background = track.albumart;
             return (
               <li style={{ width: 300, height: 72.19 }}>
                 <div style={{ display: 'flex', flexDirection: 'row', width: 306, height: 62.19 }}>

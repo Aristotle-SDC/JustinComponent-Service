@@ -1,10 +1,11 @@
 {
   "name": "fec",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "seed": "mysql -u root < schema.sql | node database/helpers.jsx",
+    "load": "psql tracks -U jonathan < postgres-schema.sql",
+    "seed": "node ./database/postgres-seed.js",
     "build": "webpack -d --watch",
     "start": "nodemon server/index.js"
   },
@@ -20,11 +21,14 @@
   "homepage": "https://github.com/DemocritusCloud/JustinComponent-Service#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "faker": "^4.1.0",
     "mysql": "^2.16.0",
     "nodemon": "^1.18.9",
+    "pg-promise": "^8.5.4",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "request": "^2.88.0",

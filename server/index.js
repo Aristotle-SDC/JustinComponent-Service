@@ -1,16 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
-const getTracks = require('../database/helpers.jsx').getTracks;
-const sortTracks = require('../database/helpers.jsx').sortTracks;
+const getTracks = require('../database/helpers.js').getTracks;
+const sortTracks = require('../database/helpers.js').sortTracks;
 
 const app = express();
+// app.set('port', process.env.PORT || 3001);
 
 app.use(bodyParser.urlencoded({
   extended: false,
 }));
 app.use(bodyParser.json());
-//app.use(express.static(`${__dirname}/../client/dist`));
+// app.use(cors());
+// app.use(express.static(`${__dirname}/../client/dist`));
 app.use('/', express.static('./client/dist/'));
 app.use(/\/\d+\//, express.static('./client/dist/'));
 
@@ -21,10 +24,12 @@ app.use((req, res, next) => {
 });
 
 app.get('/:id', (req, res) => {
+  // res.send('hello');
   let id = req.params.id;
   getTracks((err, data) => {
     if (err) return err;
     const sortedData = sortTracks(data, id);
+    // console.log(sortedData);
     res.send(sortedData);
   });
 });

@@ -11,13 +11,13 @@ class RelatedTracks extends React.Component {
     return (
       <div style={{ margin: 5, width: 300 }}>
         <div style={{ display: 'flex', flexDirection: 'row', color: 'gray', borderBottom: 'solid', borderWidth: 1 }}>
-          <span style={{ backgroundImage: `url(https://s3.us-east-2.amazonaws.com/feccompimgs/Screen+Shot+2019-01-06+at+12.05.10+PM.png)`, 
+          <span style={{ backgroundImage: `url(https://s3.us-east-2.amazonaws.com/feccompimgs/Screen+Shot+2019-01-06+at+12.05.10+PM.png)`,
            backgroundPosition:'top 10',width: 22, height: 22, opacity: 1, paddingRight: 10 }}></span><span style={{ flex: 1 }}>Related Tracks</span><span style={{ }}>View All</span>
         </div>
 
         <ul style={{ listStyle: 'none', margin: 0, padding: 0, paddingTop: 5 }}>
           {this.props.relatedTracks.map(track => {
-            let background = track.albumArt;
+            let background = track.albumart;
             return (
               <li>
                 <div style={{ display: 'flex', flexDirection: 'row'}}>

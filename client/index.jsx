@@ -11,7 +11,7 @@ class Related extends React.Component {
     this.state = {
        currentTrack: null,
        relatedTracks: null,
-       id: 1  
+       id: 1
     };
   }
   componentDidMount() {
@@ -21,34 +21,34 @@ class Related extends React.Component {
       1,
       window.location.pathname.length - 1
     );
-    
+
     id ? songId = Number(id) : songId = this.state.id;
 
     this.getRelatedTracks(songId);
   }
-  
+
   getRelatedTracks(id) {
-    axios.get(`/:${id}`)
+    axios.get(`/${id}`)
       .then(res => {
-        this.setState({ 
+        this.setState({
           currentTrack: res.data.currTrack,
           relatedTracks: res.data.relTracks,
           playlists: res.data.plists
         });
-        console.log(this.state.currentTrack);
+        // console.log(this.state.currentTrack);
       })
       .catch(err => console.log('get err: ', err));
   }
-  
+
   render() {
     if(this.state.currentTrack === null){
       return (<div>Loading ...</div>)
-    } else {  
+    } else {
       return (
       <div style={{width:300, borderLeft: 'groove', borderWidth: 1, borderColor:'gray', paddingLeft: 30}}><Sources currentTrack={this.state.currentTrack} plists={this.state.playlists} relatedTracks={this.state.relatedTracks}/></div>
       )
   }
-  
+
   }
 }
 
