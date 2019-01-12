@@ -2,8 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const getTracks = require('../database/helpers.js').getTracks;
-const sortTracks = require('../database/helpers.js').sortTracks;
+const getTracks = require('../database/helpers-mongo.js').getTracks;
+const sortTracks = require('../database/helpers-mongo.js').sortTracks;
 
 const app = express();
 // app.set('port', process.env.PORT || 3001);
