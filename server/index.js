@@ -1,3 +1,4 @@
+const nr = require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const async = require('async');
@@ -5,13 +6,10 @@ const Promise = require('bluebird');
 
 const getTracks = require('../database/helpers.js').getTracks;
 const sortTracks = require('../database/helpers.js').sortTracks;
-<<<<<<< Updated upstream
-=======
 const getOneTrack = require('../database/helpers.js').getOneTrack;
 const createOneTrack = require('../database/helpers').createOneTrack;
 const updateOneTrack = require('../database/helpers').updateOneTrack;
 const deleteOneTrack = require('../database/helpers').deleteOneTrack;
->>>>>>> Stashed changes
 
 const app = express();
 // app.set('port', process.env.PORT || 3001);

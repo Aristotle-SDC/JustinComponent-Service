@@ -6,7 +6,7 @@ const db = pgp(cn);
 
 
 const getTracks = (callback) => {
-  db.query('SELECT * from tracks where id >= 9900001 and id <= 10000000')
+  db.query('SELECT * from tracks where id >= 9990001 and id <= 10000000')
   .then(data => callback(null, data))
   .catch(error => console.log(error) );
 };
@@ -21,6 +21,9 @@ const createOneTrack = (req, callback) => {
   db.query('SELECT count(*) AS exact_count FROM tracks')
   .then(data => data[0].exact_count)
   .then(id => {
+  //   console.log(req.query);
+  //   console.log(id);
+  // ${Number(id)+1}
     db.query(`INSERT INTO tracks VALUES
       (${Number(id)+1}, ${req.query.artist}, ${req.query.track}, ${req.query.album}, ${req.query.albumart},
        ${req.query.plays}, ${req.query.likes}, ${req.query.shares}, ${req.query.comments})`)

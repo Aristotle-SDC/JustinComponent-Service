@@ -28,6 +28,7 @@
     "express": "^4.16.4",
     "faker": "^4.1.0",
     "mysql": "^2.16.0",
+    "newrelic": "^5.1.0",
     "nodemon": "^1.18.9",
     "pg-promise": "^8.5.4",
     "promise": "^8.0.2",
